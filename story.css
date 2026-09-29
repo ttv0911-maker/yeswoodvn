@@ -1,0 +1,132 @@
+/* Story page proportions follow the supplied 1512 px design. */
+.story-page{max-width:1512px;margin-inline:auto}
+.story-page .about-wrap{max-width:none;padding-inline:5.13%}
+.story-page .story-intro{display:grid;grid-template-columns:43% 53%;gap:4%;min-height:0;padding-block:82px 52px;align-items:start}
+.story-page .intro-visual{width:100%;aspect-ratio:1.55;overflow:hidden}
+.story-page .intro-visual .intro-image{display:block;width:100%;height:100%;min-height:0;aspect-ratio:auto;object-fit:cover;object-position:58% 50%;margin:0}
+.story-page .intro-copy h2{font-size:28px}
+.story-page .intro-copy p{font-size:20px;line-height:1.45;margin:0 0 25px}
+.story-page .story-numbers{margin-top:60px;justify-content:space-between;gap:24px}
+.story-page .story-gallery{display:grid;grid-template-columns:57% 37%;gap:6%;min-height:0;padding-block:0 80px;align-items:start}
+.story-page .story-gallery .gallery-sofa{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
+.story-page .story-gallery>div{padding-top:13%;display:flex;flex-direction:column;align-items:center}
+.story-page .story-gallery>div img{display:block;width:74%;height:auto;aspect-ratio:auto;object-fit:contain;margin:0}
+.story-page .story-gallery blockquote{margin:100px 0 0;white-space:nowrap;font-size:24px;text-align:center}
+.story-page .story-world{min-height:0;padding-block:10px 100px;grid-template-columns:75% 19%;gap:6%}
+.story-page .story-world img{mix-blend-mode:normal;width:100%;height:auto;background:transparent}
+.story-page .timeline{min-height:0;padding-block:72px 85px}
+.story-page .timeline-grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:80px 0}
+.story-page .timeline-grid article{grid-column:span 2;min-height:350px;padding:0 22px;border-left:1px solid #c7c8bc}
+.story-page .timeline-grid article:nth-child(6){grid-column:2/span 2}
+.story-page .timeline-grid h3{text-align:center;font-size:40px;line-height:1.2;margin:0 0 20px}
+.story-page .timeline-grid img{width:100%;height:180px;margin-top:auto;object-fit:contain}
+.story-page .values{min-height:0;background:transparent;padding:0;color:#f7f5ee}
+.values-layout{display:grid;grid-template-columns:42.75% 29.6% 27.65%;grid-template-rows:auto 245px 300px;background:#003e29}
+.values-heading{grid-column:1/3;grid-row:1;padding:65px 73px 70px}
+.values-heading h2{font-size:38px;margin:0 0 35px}
+.values-heading p{font-size:21px;line-height:1.4;max-width:820px;margin:0}
+.values-forest{grid-column:1;grid-row:2/4;width:100%;height:calc(100% - 55px);object-fit:cover;object-position:50% 50%;align-self:start}
+.values-layout article{padding:65px 52px 40px 54px;min-width:0}
+.values-layout article h3{font:400 26px/1.3 Noto,Georgia,serif;margin:0 0 30px}
+.values-layout article p{font-size:20px;line-height:1.35;margin:0}
+.value-eco{grid-column:2;grid-row:2}
+.value-design{grid-column:3;grid-row:2;border-left:1px solid #ffffff40}
+.value-quality{grid-column:2;grid-row:3;border-top:1px solid #ffffff40}
+.value-cost{grid-column:3;grid-row:3;background:var(--ivory);color:var(--green)}
+.story-page .vietnam{min-height:0;padding:75px 0 85px}
+.vietnam-heading{text-align:center;padding-inline:18%}
+.story-page .vietnam h2{font-size:60px;line-height:1.2;margin:0 0 34px}
+.story-page .vietnam-lead{font-size:19px;line-height:1.35;max-width:none;margin:0 0 68px}
+.story-page .vietnam-grid{display:grid;grid-template-columns:50.6% 49.4%;gap:0;padding:0}
+.story-page .vietnam-grid>img{display:block;width:100%;height:auto;min-height:0;aspect-ratio:.603;object-fit:cover;object-position:center}
+.story-page .vietnam-grid>div{padding:130px 52px 85px 87px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start}
+.story-page .showroom-copy p{font-size:21px;line-height:1.35;margin:0 0 28px}
+.story-page .vietnam-grid>div>img{display:block;width:82%;height:auto;aspect-ratio:auto;object-fit:contain;align-self:flex-end;margin:70px 0 0}
+@media(max-width:1100px) and (min-width:701px){
+ .story-page .intro-copy p{font-size:15px}.story-page .story-numbers{margin-top:30px}.story-page .story-gallery blockquote{font-size:18px;margin-top:60px}
+ .values-layout{grid-template-rows:auto 190px 235px}.values-heading{padding:45px}.values-heading p{font-size:16px}.values-layout article{padding:32px 24px}.values-layout article p{font-size:15px}.values-layout article h3{font-size:20px;margin-bottom:22px}
+ .story-page .vietnam h2{font-size:42px}.story-page .vietnam-lead{font-size:15px}.story-page .vietnam-grid>div{padding:70px 35px 45px 45px}.story-page .showroom-copy p{font-size:16px}
+}
+@media(max-width:700px){
+ .story-page .story-intro{display:block;padding-block:35px}.story-page .intro-copy p{font-size:15px}.story-page .intro-visual{margin-top:25px;aspect-ratio:1.55}.story-page .story-numbers{margin-top:30px}
+ .story-page .story-gallery{display:grid;grid-template-columns:57% 37%;gap:6%;padding-bottom:40px}.story-page .story-gallery>div img{width:100%}.story-page .story-gallery blockquote{white-space:normal;font-size:12px;margin-top:25px}
+ .story-page .story-world{padding-bottom:35px}.story-page .world-numbers{display:grid;grid-template-columns:1fr;gap:15px}.world-numbers span{font-size:9px}.world-numbers strong{font-size:15px}
+ .story-page .timeline{padding-block:35px}.story-page .timeline-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 0}.story-page .timeline-grid article,.story-page .timeline-grid article:nth-child(6){grid-column:auto;min-height:240px;padding-inline:12px}.story-page .timeline-grid h3{font-size:28px}.story-page .timeline-grid img{height:110px}
+ .values-layout{grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto auto}.values-heading{grid-column:1/-1;grid-row:1;padding:30px 24px}.values-heading h2{font-size:26px;margin-bottom:20px}.values-heading p{font-size:14px}
+ .values-forest{grid-column:1/-1;grid-row:2;height:200px}.values-layout article{padding:24px 20px;min-height:190px}.values-layout article h3{font-size:17px;margin-bottom:15px}.values-layout article p{font-size:12px}
+ .value-eco{grid-column:1;grid-row:3}.value-design{grid-column:2;grid-row:3}.value-quality{grid-column:1;grid-row:4}.value-cost{grid-column:2;grid-row:4}
+ .story-page .vietnam{padding-block:35px}.vietnam-heading{padding-inline:24px}.story-page .vietnam h2{font-size:32px;margin-bottom:20px}.story-page .vietnam-lead{font-size:13px;margin-bottom:30px}
+ .story-page .vietnam-grid{grid-template-columns:50.6% 49.4%;padding:0}.story-page .vietnam-grid>div{padding:20px 15px 20px 18px}.story-page .showroom-copy p{font-size:11px}.story-page .showroom-copy .button{font-size:9px;min-height:30px;padding:5px}.story-page .vietnam-grid>div>img{width:90%;margin-top:25px}
+}
+/* Measurements and complete copy reconciled with the native Figma PDF. */
+.story-page .about-wrap{padding-left:5.423%;padding-right:4.365%}
+.story-page .story-intro{grid-template-columns:41.64% 52.57%;gap:5.79%;padding-top:86px;padding-bottom:64px}
+.story-page .intro-copy h2{font:600 36px/1.3 "Be Vietnam Pro",Be,sans-serif;margin:0 0 26px;color:#307e55}
+.story-page .intro-copy p{font:300 24px/1.25 "Be Vietnam Pro",Be,sans-serif;margin:0 0 30px}
+.story-page .intro-copy p:last-of-type{margin-bottom:0}
+.story-page .intro-visual{aspect-ratio:717/461}
+.story-page .intro-visual .intro-image{object-position:center}
+.story-page .story-numbers{margin-top:90px;justify-content:flex-start;gap:100px}
+.story-page .story-numbers strong{font-size:40px}.story-page .story-numbers span{font-size:16px;white-space:nowrap}
+.story-page .story-gallery{grid-template-columns:56.38% 36.65%;gap:6.97%;padding-bottom:56px}
+.story-page .story-gallery>div{padding-top:99px}
+.story-page .story-gallery .dining-visual{width:74.8%;aspect-ratio:374/426;overflow:hidden;flex:none}
+.story-page .story-gallery .dining-visual img{width:100%;height:100%;object-fit:cover;object-position:center;aspect-ratio:auto}
+.story-page .story-gallery blockquote{font:600 32px/1.3 "Be Vietnam Pro",Be,sans-serif;margin-top:120px;color:#307e55}
+.story-page .story-world{grid-template-columns:82.85% 13.87%;gap:3.28%;padding:0 5.3% 74px 4.1%}
+.story-page .world-numbers{gap:64px}.story-page .world-numbers strong{font-size:32px}.story-page .world-numbers span{font-size:16px}
+.story-page .banner-copy{top:21%;max-width:42%;left:82px}
+.story-page .banner-copy h2{font-size:40px;line-height:1.2}.story-page .banner-copy p{font-size:20px;line-height:1.3;max-width:595px}
+.story-page .timeline{padding-top:72px;padding-bottom:90px}
+.story-page .timeline h2{font-size:48px;line-height:1.3;margin-bottom:64px}
+.story-page .timeline-grid{display:flex;flex-direction:column;gap:115px}
+.timeline-row{display:grid;gap:0}
+.timeline-five{grid-template-columns:repeat(5,minmax(0,1fr))}
+.timeline-four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.story-page .timeline-grid article,.story-page .timeline-grid article:nth-child(6){grid-column:auto;min-height:398px;display:flex;flex-direction:column;overflow:visible;padding:0 16px;border-left:1px solid #aeb5ab}
+.story-page .timeline-grid h3{width:192px;max-width:100%;font:600 48px/1.12 Noto,Georgia,serif;text-align:center;border-bottom:2px solid #aeb5ab;padding-bottom:8px;margin:0 0 18px}
+.story-page .timeline-grid h4{font:400 italic 20px/1.3 "Be Vietnam Pro",Be,sans-serif;margin:0 0 18px;min-height:26px;color:#111}
+.story-page .timeline-grid p{font:300 16px/1.25 "Be Vietnam Pro",Be,sans-serif;margin:0 0 14px}
+.story-page .timeline-grid img{width:206px;max-width:100%;height:206px;object-fit:contain;margin-top:auto}
+.values-layout{grid-template-columns:42.86% 29.65% 27.49%;grid-template-rows:304px 242px 300px;margin-left:8px}
+.values-heading{padding:53px 74px 65px}.values-heading h2{font-size:48px;line-height:1.25;margin-bottom:38px}.values-heading p{font-size:24px;line-height:1.25;max-width:795px}
+.values-forest{height:486px;object-position:center}.values-layout article{padding:76px 28px 35px 55px}.values-layout article h3{font-size:32px;margin-bottom:30px}.values-layout article p{font-size:20px;line-height:1.25}
+.value-design,.value-cost{padding-left:29px!important}.value-quality,.value-cost{padding-top:102px!important}
+.story-page .vietnam{padding-top:80px;padding-bottom:80px}.story-page .vietnam h2{font-size:64px}.story-page .vietnam-lead{font-size:18px;line-height:1.35}
+.story-page .vietnam-grid{grid-template-columns:50.4% 49.6%;margin-left:8px}
+.story-page .vietnam-grid>img{aspect-ratio:754/1247;object-position:67% center}
+.story-page .vietnam-grid>div{padding:160px 65px 87px 85px}
+.story-page .vietnam-grid>div>img{width:100%;max-width:477px;aspect-ratio:1200/1599}
+.story-page .showroom-copy p{font-size:22px;line-height:1.25}
+@media(max-width:1100px) and (min-width:701px){
+ .story-page .intro-copy h2{font-size:26px}.story-page .intro-copy p{font-size:17px}.story-page .story-numbers{gap:40px;margin-top:45px}.story-page .story-numbers strong{font-size:28px}.story-page .story-numbers span{font-size:12px}
+ .story-page .story-gallery>div{padding-top:65px}.story-page .story-gallery blockquote{font-size:21px;margin-top:70px}.story-page .world-numbers{gap:35px}.story-page .world-numbers strong{font-size:23px}.story-page .world-numbers span{font-size:12px}
+ .story-page .timeline-grid h3{font-size:34px}.story-page .timeline-grid h4{font-size:16px}.story-page .timeline-grid p{font-size:13px}.story-page .timeline-grid img{height:150px}
+ .values-layout{grid-template-rows:240px 205px 260px}.values-heading{padding:40px}.values-heading h2{font-size:34px}.values-heading p{font-size:17px}.values-forest{height:410px}.values-layout article{padding:50px 20px 20px 30px}.values-layout article h3{font-size:22px}.values-layout article p{font-size:15px}.value-quality,.value-cost{padding-top:60px!important}
+ .story-page .vietnam h2{font-size:46px}.story-page .vietnam-grid>div{padding:100px 35px 50px 50px}.story-page .showroom-copy p{font-size:16px}
+}
+@media(max-width:700px){
+ .story-page .story-intro{padding-top:35px;padding-bottom:35px}.story-page .intro-copy h2{font-size:25px}.story-page .intro-copy p{font-size:15px;line-height:1.5}.story-page .story-numbers{margin-top:30px;gap:35px}.story-page .story-numbers strong{font-size:25px}.story-page .story-numbers span{font-size:10px}
+ .story-page .story-gallery>div{padding-top:25px}.story-page .story-gallery blockquote{font-size:12px;margin-top:30px;white-space:normal}.story-page .story-world{padding-bottom:35px}.story-page .world-numbers{gap:20px}.story-page .world-numbers strong{font-size:13px}.story-page .world-numbers span{font-size:8px}
+ .story-page .banner-copy{left:24px;top:15%;max-width:50%}.story-page .banner-copy h2{font-size:24px}.story-page .banner-copy p{font-size:10px}
+ .story-page .timeline{padding-block:35px}.story-page .timeline h2{font-size:28px;margin-bottom:30px}.story-page .timeline-grid{gap:30px}.timeline-row{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:30px}.timeline-five article:last-child{grid-column:1/-1!important;max-width:50%;margin-inline:auto}.story-page .timeline-grid h3{font-size:28px}.story-page .timeline-grid h4{font-size:14px}.story-page .timeline-grid p{font-size:12px;line-height:1.4}.story-page .timeline-grid article{min-height:320px}.story-page .timeline-grid img{height:130px}
+ .values-layout{margin-left:0;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto auto}.values-heading{padding:30px 24px}.values-heading h2{font-size:26px;margin-bottom:20px}.values-heading p{font-size:14px}.values-forest{height:220px}.values-layout article{padding:24px 20px!important}.values-layout article h3{font-size:17px}.values-layout article p{font-size:12px}.story-page .vietnam{padding-block:35px}.story-page .vietnam h2{font-size:32px}.story-page .vietnam-lead{font-size:13px}.story-page .vietnam-grid{margin-left:0}.story-page .vietnam-grid>div{padding:20px 15px 20px 18px}.story-page .showroom-copy p{font-size:11px}
+}
+
+@media(min-width:1101px) and (max-width:1450px){
+ .values-layout article{padding-top:58px;padding-left:40px}
+ .values-layout article h3{font-size:28px;margin-bottom:25px}
+ .values-layout article p{font-size:18px;line-height:1.35}
+ .value-quality,.value-cost{padding-top:80px!important}
+ .story-page .world-numbers strong{font-size:28px;white-space:nowrap}
+}
+
+@media(min-width:701px){.story-page .vietnam-grid>div>img{width:80%;max-width:none}}
+
+/* Full-width brand sections; keep the editorial content at its Figma width. */
+.story-page{max-width:none;width:100%}
+.story-page>.story-intro,.story-page>.story-gallery,.story-page>.story-world,.story-page>.timeline,.story-page>.vietnam{max-width:1512px;margin-inline:auto}
+.story-page .values-layout{margin-left:0;width:100%;grid-template-columns:42.86% 29.65% 27.49%}
+.story-page .timeline-four{width:80%;margin-inline:auto;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(min-width:1513px){.story-page .values-layout{grid-template-rows:304px 242px 300px}.story-page .values-forest{height:486px}.story-page .banner-copy{left:max(82px,calc((100% - 1348px)/2))}}
+@media(max-width:700px){.story-page .timeline-four{width:100%;grid-template-columns:repeat(2,minmax(0,1fr))}.story-page .values-layout{grid-template-columns:1fr 1fr}.story-page .values-forest{height:220px}}
