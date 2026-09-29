@@ -1,0 +1,52 @@
+/* YESWOOD motion layer — loaded after all other stylesheets.
+   Soft, editorial motion. Everything is disabled for visitors who
+   turn on "reduce motion" in their system settings. */
+
+:root{--mo-ease:cubic-bezier(.22,1,.36,1)}
+
+/* 1. Page fade-in */
+@keyframes mo-page{from{opacity:0}to{opacity:1}}
+body{animation:mo-page .6s ease both}
+html.mo-leaving body{opacity:0;transition:opacity .25s ease}
+
+/* 2. Hero: slow zoom-out on the image, text rises in */
+@keyframes mo-hero-img{from{transform:scale(1.08)}to{transform:scale(1)}}
+@keyframes mo-rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.hero>img,.about-hero>img{animation:mo-hero-img 2.4s var(--mo-ease) both!important}
+.hero-content>*,.about-hero-copy>*,.page-heading>*{animation:mo-rise 1s var(--mo-ease) both}
+.hero-content>*:nth-child(2),.about-hero-copy>*:nth-child(2),.page-heading>*:nth-child(2){animation-delay:.15s}
+.hero-content>*:nth-child(3),.about-hero-copy>*:nth-child(3),.page-heading>*:nth-child(3){animation-delay:.3s}
+.hero-content>*:nth-child(4),.about-hero-copy>*:nth-child(4){animation-delay:.45s}
+
+/* 3. Scroll reveal (classes added by motion.js) */
+.mo-reveal{opacity:0;transform:translateY(34px);
+  transition:opacity .9s var(--mo-ease),transform .9s var(--mo-ease)!important;
+  transition-delay:var(--mo-delay,0s)!important}
+.mo-reveal.mo-fade{transform:none}
+.mo-reveal.mo-in{opacity:1;transform:none}
+
+/* 4. Hover: images zoom a little more, cards lift */
+.category-grid a{transition:transform .5s var(--mo-ease)}
+.category-grid a:hover{transform:translateY(-6px)}
+.product-grid article:hover img,.room:hover img,.link-panels a:hover img{transform:scale(1.05)}
+.button{transition:background-color .3s ease,color .3s ease,border-color .3s ease,transform .3s var(--mo-ease)}
+.button:hover{transform:translateY(-2px)}
+
+/* 5. Nav links: underline slides in; mega menu fades down */
+.site-header .main-nav nav>a,.site-header .utility-links a{
+  background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;
+  transition:background-size .35s var(--mo-ease),color .2s}
+.site-header .main-nav nav>a:hover,.site-header .utility-links a:hover{background-size:100% 1px}
+@keyframes mo-drop{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+.site-header .mega-shell.is-open{animation:mo-drop .35s var(--mo-ease) both}
+.site-header .mega-panel.is-active>*{animation:mo-rise .5s var(--mo-ease) both}
+.site-header .mega-panel.is-active>*:nth-child(2){animation-delay:.06s}
+.site-header .mega-panel.is-active>*:nth-child(3){animation-delay:.12s}
+.site-header .inspire-menu:hover .inspire-submenu,.about-menu:hover .about-submenu{animation:mo-drop .3s var(--mo-ease) both}
+
+@media(prefers-reduced-motion:reduce){
+  body,.hero>img,.about-hero>img,.hero-content>*,.about-hero-copy>*,.page-heading>*,
+  .site-header .mega-shell.is-open,.site-header .mega-panel.is-active>*{animation:none!important}
+  .mo-reveal{opacity:1!important;transform:none!important;transition:none!important}
+  .category-grid a:hover,.button:hover{transform:none}
+}
