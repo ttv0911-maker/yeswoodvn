@@ -50,3 +50,7 @@ html.mo-leaving body{opacity:0;transition:opacity .25s ease}
   .mo-reveal{opacity:1!important;transform:none!important;transition:none!important}
   .category-grid a:hover,.button:hover{transform:none}
 }
+
+/* Keep the white-background removal (mix-blend-mode:multiply) on category
+   icons working while they fade/lift: give each card the page colour to blend against. */
+.category-grid a{background:var(--ivory,#f7f5ee);isolation:isolate}
