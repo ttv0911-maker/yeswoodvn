@@ -15,9 +15,11 @@ if (toggle && nav) {
 }
 const newsletter = document.querySelector('#newsletter');
 if (newsletter) newsletter.addEventListener('submit', e => {
-  e.preventDefault();
-  const status = document.querySelector('#newsletter-status');
-  if (status) status.textContent = 'Vui lòng liên hệ YesWood để đăng ký nhận tin.';
+  e.preventDefault();if(!newsletter.reportValidity())return;
+  const status=document.querySelector('#newsletter-status');
+  if(status)status.textContent='Vui lòng nhấn Gửi trong ứng dụng email để hoàn tất yêu cầu.';
+  const email=newsletter.querySelector('input[type=email]').value.trim();
+  location.href='mailto:info@yeswoodvietnam.com?subject='+encodeURIComponent('Đăng ký bản tin YESWOOD')+'&body='+encodeURIComponent('Tôi muốn nhận bản tin từ YESWOOD. Email: '+email);
 });
 const carousel = document.querySelector('.product-grid');
 if (carousel) {

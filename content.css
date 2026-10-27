@@ -1,0 +1,9 @@
+
+/* Content release: typography and article destinations; existing brand layout remains. */
+.yw-copy{max-width:980px;padding-bottom:80px}.yw-copy p{line-height:1.85}.yw-copy h2{margin-top:38px;color:#07482e}.yw-copy .yw-next{margin-top:36px}
+.yw-article{max-width:860px;margin:auto;padding:64px 28px 90px}.yw-article h1{font:400 clamp(30px,4vw,48px)/1.25 Georgia,serif;color:#07482e}.yw-article p{line-height:1.9}.yw-article>img{width:100%;max-height:440px;object-fit:cover;margin:22px 0}.yw-deck{font-size:20px;color:#58665c}.yw-back{color:#07482e;text-decoration:underline}
+.timeline-three{grid-template-columns:repeat(3,minmax(0,1fr))}.yw-room-category{display:flex;align-items:center;justify-content:center;min-width:160px;padding:24px;background:#e8eee8;color:#07482e;border:1px solid #cbd6cc}.room-product-grid a{padding:18px;background:#e8eee8}.room-product-grid a span{margin:0}
+.inspire-card>a>img{width:100%;aspect-ratio:1.4;object-fit:cover}.yw-catalog-intro{padding-top:32px;padding-bottom:20px}.yw-catalog-intro h1{font:400 36px Georgia,serif;color:#07482e}.yw-catalog-intro p{max-width:760px;line-height:1.7}.yw-form-privacy,.yw-storage-note{font-size:13px;line-height:1.7}.yw-form-privacy a{text-decoration:underline}
+@media(max-width:700px){.timeline-three{grid-template-columns:1fr}.yw-copy{padding-inline:24px}.yw-article{padding-top:35px}.room-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.faq-list>details{border-top:1px solid #c8cec5;padding:18px 0}.faq-list>details>summary{font-size:18px;line-height:1.5;cursor:pointer;color:#07482e}.faq-list>details>p{line-height:1.8;margin:16px 0 4px}.faq-list>h2{margin-bottom:28px}

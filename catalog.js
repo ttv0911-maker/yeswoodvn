@@ -184,3 +184,6 @@ if (catalog) {
   });
   render();
 }
+
+const ywCatalogCopy={"sofa": ["Sofa", "Tìm một chỗ ngồi hợp với cách bạn nghỉ ngơi. Khám phá kiểu dáng, kích thước và chất liệu bọc phù hợp với phòng khách hoặc góc đọc sách."], "ban": ["Bàn", "Từ bữa ăn đến công việc, mỗi chiếc bàn phục vụ một nhịp sinh hoạt. Bắt đầu từ công năng, số người sử dụng và khoảng trống trong phòng."], "ghe": ["Ghế & đôn", "Một chỗ ngồi đúng nhu cầu có thể làm cả góc nhà thuận tiện hơn. Chọn theo chiều cao sử dụng, vị trí đặt và cảm giác ngồi bạn mong muốn."], "tu": ["Tủ", "Sắp xếp đồ dùng theo cách dễ tìm, dễ lấy và dễ giữ gọn. Xem kích thước, kiểu cánh mở và bố trí bên trong trước khi chọn."], "ke": ["Kệ & đảo bếp", "Thêm chỗ đặt, chỗ cất hoặc trưng bày mà vẫn giữ lối đi thông thoáng. Đo vị trí đặt và kiểm tra tải trọng theo thông số từng mẫu."], "giuong": ["Giường & nệm", "Bắt đầu từ diện tích phòng, kích thước nệm và thói quen nghỉ ngơi. Xem cấu hình giường, khoảng lưu trữ và hướng dẫn sử dụng trước khi lựa chọn."]};
+if(document.querySelector('#yw-category-title')){const q=new URLSearchParams(location.search);const c=ywCatalogCopy[q.get('group')||'sofa']||ywCatalogCopy.sofa;document.querySelector('#yw-category-title').textContent=q.get('category')||c[0];document.querySelector('#yw-category-intro').textContent=c[1];}
