@@ -5,7 +5,10 @@ if (catalog) {
   const groupNames = {sofa:'Sofa',ban:'Bàn',ghe:'Ghế & đôn',tu:'Tủ',ke:'Kệ & đảo bếp',giuong:'Giường & nệm'};
   const groupKey = params.get('group') || 'sofa';
   const groupName = groupNames[groupKey] || 'Sofa';
-  const selectedName = params.get('category') || 'Tất cả sofa';
+  const selectedName = params.get('category') || groupName;
+  const searchTerm = params.get('q')?.trim() || '';
+  const searchIndex = new Map();
+  const normalizeSearch = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase();
   document.title = `${selectedName} | YESWOOD`;
   const crumbs = document.querySelector('.breadcrumb');
   if (crumbs) {
@@ -20,6 +23,7 @@ if (catalog) {
   const grid = document.querySelector('#catalog-grid');
   const original = [...grid.querySelectorAll('.product-card')];
   original.forEach(card => {
+    searchIndex.set(card,normalizeSearch(card.textContent+' '+(card.querySelector('img')?.alt||'')+' '+(card.dataset.material||'')+' '+(card.dataset.collection||'')));
     const id = ['catalog',groupKey,selectedName,card.id].join(':');
     card.dataset.wishlistId = id;
     const detailLink = card.querySelector('.product-name');
@@ -33,6 +37,7 @@ if (catalog) {
   });
   window.yeswoodWishlistSync?.();
   const count = document.querySelector('#product-count');
+  count.setAttribute('aria-live','polite');
   const empty = document.querySelector('#empty-results');
   const pageButtons = [...document.querySelectorAll('.page-number')];
   const prev = document.querySelector('#prev-page');
@@ -75,6 +80,7 @@ if (catalog) {
     const colors = checked('color'), materials = checked('material'), collections = checked('collection'), statuses = checked('status');
     const activeTags = [...layer.querySelectorAll('[data-filter-tag][aria-pressed="true"]')].map(b => b.dataset.filterTag);
     filtered = original.filter(card =>
+      (!searchTerm || searchIndex.get(card).includes(normalizeSearch(searchTerm))) &&
       +card.dataset.price >= +min.value && +card.dataset.price <= +max.value &&
       (!colors.length || colors.includes(card.dataset.color)) &&
       (!materials.length || materials.includes(card.dataset.material)) &&
@@ -182,8 +188,11 @@ if (catalog) {
     });
     spot.querySelector('.hotspot-card').addEventListener('click',() => {spot.classList.remove('active');trigger.setAttribute('aria-expanded','false');});
   });
-  render();
+  applyFilters();
 }
 
 const ywCatalogCopy={"sofa": ["Sofa", "Tìm một chỗ ngồi hợp với cách bạn nghỉ ngơi. Khám phá kiểu dáng, kích thước và chất liệu bọc phù hợp với phòng khách hoặc góc đọc sách."], "ban": ["Bàn", "Từ bữa ăn đến công việc, mỗi chiếc bàn phục vụ một nhịp sinh hoạt. Bắt đầu từ công năng, số người sử dụng và khoảng trống trong phòng."], "ghe": ["Ghế & đôn", "Một chỗ ngồi đúng nhu cầu có thể làm cả góc nhà thuận tiện hơn. Chọn theo chiều cao sử dụng, vị trí đặt và cảm giác ngồi bạn mong muốn."], "tu": ["Tủ", "Sắp xếp đồ dùng theo cách dễ tìm, dễ lấy và dễ giữ gọn. Xem kích thước, kiểu cánh mở và bố trí bên trong trước khi chọn."], "ke": ["Kệ & đảo bếp", "Thêm chỗ đặt, chỗ cất hoặc trưng bày mà vẫn giữ lối đi thông thoáng. Đo vị trí đặt và kiểm tra tải trọng theo thông số từng mẫu."], "giuong": ["Giường & nệm", "Bắt đầu từ diện tích phòng, kích thước nệm và thói quen nghỉ ngơi. Xem cấu hình giường, khoảng lưu trữ và hướng dẫn sử dụng trước khi lựa chọn."]};
-if(document.querySelector('#yw-category-title')){const q=new URLSearchParams(location.search);const c=ywCatalogCopy[q.get('group')||'sofa']||ywCatalogCopy.sofa;document.querySelector('#yw-category-title').textContent=q.get('category')||c[0];document.querySelector('#yw-category-intro').textContent=c[1];}
+if(document.querySelector('#yw-category-title')){const q=new URLSearchParams(location.search);const c=ywCatalogCopy[q.get('group')||'sofa']||ywCatalogCopy.sofa;document.querySelector('#yw-category-title').textContent=q.get('q')?'Kết quả tìm kiếm: '+q.get('q'):(q.get('category')||c[0]);document.querySelector('#yw-category-intro').textContent=c[1];}
+
+// Keep keyboard focus inside the filter dialog while it is open.
+document.addEventListener('keydown',event=>{const layer=document.querySelector('#filter-layer');if(event.key!=='Tab'||!layer||layer.hidden)return;const nodes=[...layer.querySelectorAll('button,a[href],input,select,textarea,[tabindex="0"]')].filter(e=>!e.disabled&&e.getClientRects().length);if(!nodes.length)return;const first=nodes[0],last=nodes[nodes.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}});

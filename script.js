@@ -10,6 +10,7 @@ if (toggle && nav) {
     if (e.target.closest('a')) {
       nav.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Mở menu');
     }
   });
 }
@@ -46,7 +47,7 @@ if(megaShell){
   const panels=[...megaShell.querySelectorAll('.mega-panel')];
   const closeMega=()=>{megaShell.classList.remove('is-open');panels.forEach(panel=>panel.classList.remove('is-active'));triggers.forEach(trigger=>trigger.setAttribute('aria-expanded','false'));};
   const openMega=slug=>{
-    if(matchMedia('(max-width:700px)').matches)return;
+    if(matchMedia('(max-width:1050px)').matches)return;
     megaShell.classList.add('is-open');
     panels.forEach(panel=>panel.classList.toggle('is-active',panel.dataset.megaPanel===slug));
     triggers.forEach(trigger=>trigger.setAttribute('aria-expanded',String(trigger.dataset.mega===slug)));
@@ -132,3 +133,12 @@ if(megaShell){
   window.yeswoodWishlistSync=sync;
   sync();
 })();
+
+(() => {
+const input=document.querySelector('#site-search');if(!input)return;
+const query=new URLSearchParams(location.search).get('q');if(query)input.value=query;
+input.addEventListener('keydown',event=>{if(event.key!=='Enter')return;event.preventDefault();const term=input.value.trim();if(!term)return;const url=new URL('sofa.html',location.href);url.searchParams.set('q',term);if(document.documentElement.lang==='en')url.searchParams.set('lang','en');location.assign(url.href);});
+})();
+
+// Keep product callouts within their scene on narrow screens.
+(() => {const fit=target=>{const spot=target.closest?.('.scene-spot,.hotspot');if(!spot)return;const panel=spot.querySelector('.scene-product,.hotspot-card');if(!panel)return;requestAnimationFrame(()=>{const parent=spot.parentElement.getBoundingClientRect(),anchor=spot.getBoundingClientRect();panel.style.maxWidth=Math.max(120,parent.width-16)+'px';const rect=panel.getBoundingClientRect();const left=Math.max(parent.left+8,Math.min(rect.left,parent.right-rect.width-8));panel.style.left=(left-anchor.left)+'px';panel.style.right='auto';});};['pointerover','focusin','click'].forEach(type=>document.addEventListener(type,e=>fit(e.target)));})();
